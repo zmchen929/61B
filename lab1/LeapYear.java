@@ -1,6 +1,7 @@
 /** Class that determines whether or not a year is a leap year.
  *  @author YOUR NAME HERE
  */
+<<<<<<< HEAD
 
 /**judge is year is a leap Year
 return true or false
@@ -12,6 +13,9 @@ public class LeapYear {
      }
      return false;
    }
+=======
+public class LeapYear {
+>>>>>>> Initial commit with lab1 and libraries submodule
 
     /** Calls isLeapYear to print correct statement.
      *  @param  year to be analyzed
@@ -40,3 +44,7 @@ public class LeapYear {
         }
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> Initial commit with lab1 and libraries submodule
