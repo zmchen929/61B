@@ -8,7 +8,9 @@ public class TestReadPlanets {
         return Math.abs(expected - actual) <= eps * Math.max(expected, actual);
     }
 
-    /** Checks to make sure that readPlanets() works perfectly. */
+    /**
+     * Checks to make sure that readPlanets() works perfectly.
+     */
     private static String checkReadPlanets() {
         System.out.println("Checking readPlanets...");
         String planetsTxtPath = "./data/planets.txt";
@@ -24,14 +26,17 @@ public class TestReadPlanets {
             return "FAIL: readPlanets().length: Expected 5 and you gave " + actualOutput.length;
         }
 
-        /* Check to make sure every planet exists, plus random spot checks */
+        /* Check to make sure every planet exists, plus random spot checks*/
         boolean foundEarth = false;
         boolean foundMars = false;
         boolean foundMercury = false;
         boolean foundSun = false;
         boolean foundVenus = false;
         boolean randomChecksOkay = true;
-        for (Planet p : actualOutput) {
+
+
+        for (int i = 0; i < actualOutput.length; i++) {
+            Planet p = new Planet(actualOutput[i]);
             if ("earth.gif".equals(p.imgFileName)) {
                 foundEarth = true;
                 if (!doubleEquals(p.xxPos, 1.4960e+11, 0.01)) {
@@ -57,7 +62,8 @@ public class TestReadPlanets {
             }
         }
 
-        /* Build up a nice list of missing planets */
+
+        /* Build up a nice list of missing planets*/
         String missingPlanets = "";
         if (!foundEarth) {
             missingPlanets += "Earth, ";
@@ -82,8 +88,10 @@ public class TestReadPlanets {
         if (!randomChecksOkay) {
             return "FAIL: readPlanets(); Not all planets have correct info!";
         }
+
         return "PASS: readPlanets(); Congrats! This was the hardest test!";
     }
+
 
     public static void main(String[] args) {
         String testResult = checkReadPlanets();
